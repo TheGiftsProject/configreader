@@ -1,0 +1,15 @@
+test:
+  ebay:
+    id: 1234
+    host: ebay_test
+  stubhub:
+    id: 3456
+    host: stubhub_test
+
+development:
+  ebay:
+    id: 1235
+    host: ebay_development
+  stubhub:
+    id: 3457
+    host: stubhub_development
