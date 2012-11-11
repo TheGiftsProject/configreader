@@ -2,10 +2,8 @@ require 'active_support/dependencies'
 
 module ConfigReader
 
-  mattr_accessor :app_root
-
-  def self.setup
-    yield self
+  def self.config
+    @config ||= ConfigReader::Config.default
   end
 
 end
