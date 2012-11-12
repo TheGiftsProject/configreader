@@ -9,22 +9,22 @@ module ConfigReader
     @config ||= ConfigReader::Config.default
   end
 
-  def self.auto_build(app)
+  def self.auto_build
     return unless config.auto_build_config_objects
 
-    build_config_files(app, config.config_folder, FlatConfigReader)
-    build_config_files(app, "#{config.config_folder}/env", EnvConfigReader)
+    build_config_files(config.config_folder, FlatConfigReader)
+    build_config_files("#{config.config_folder}/env", EnvConfigReader)
   end
 
   private
 
-  def self.build_config_files(app, folder, klass)
+  def self.build_config_files(folder, klass)
     Dir["#{folder}/*"].each do |file|
       path = Pathname.new(file)
       next if path.directory?
 
-      app.instance_eval do
-        const_set(Pathname.new(file).basename('.*').to_s.upcase, klass.new(YAML.load_file(file)))
+      config.auto_build_class.class_eval do
+        const_set(path.basename('.*').to_s.upcase, klass.new(YAML.load_file(file)))
       end
     end
   end
@@ -33,3 +33,4 @@ end
 
 require 'configreader/engine'
 require 'configreader/flat_configreader'
+require 'configreader/env_configreader'

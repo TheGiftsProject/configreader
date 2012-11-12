@@ -2,7 +2,7 @@
 require File.expand_path("../lib/configreader/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "ConfigReader"
+  s.name        = "configreader"
   s.version     = ConfigReader::VERSION
   s.authors     = ["Itay Adler"]
   s.email       = ["itayadler@gmail.com"]
