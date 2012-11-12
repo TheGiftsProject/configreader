@@ -1,0 +1,8 @@
+boolean_value: true
+integer_value: 3
+string_value: my name
+quoted_string_value: "qtd my name"
+complex_value:
+  a: 1
+  b: 2
+id: "file"

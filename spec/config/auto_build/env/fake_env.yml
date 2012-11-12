@@ -1,0 +1,10 @@
+test:
+  id:       testID
+  devid:    devid
+  appid:    appid
+  certid:   certid
+
+production:
+  id:     wrong
+  devid:  wrong
+  only_production: 3

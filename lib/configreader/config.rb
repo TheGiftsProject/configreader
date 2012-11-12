@@ -1,7 +1,7 @@
 module ConfigReader
   class Config
 
-    attr_accessor :config_folder, :auto_build_config_objects
+    attr_accessor :app_root, :config_folder, :auto_build_config_objects
 
     def self.default
       new.instance_eval {
