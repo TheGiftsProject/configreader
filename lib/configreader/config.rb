@@ -5,8 +5,8 @@ module ConfigReader
 
     def self.default
       new.instance_eval {
-        @config_folder = "#{ConfigReader::Engine.root}/config"
-        @auto_build_config_objects = true
+        @config_folder = "#{ConfigReader.app_root}/config/configreader"
+        @auto_build_config_objects = false
         @auto_build_class = Object
 
         self
