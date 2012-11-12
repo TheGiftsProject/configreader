@@ -5,6 +5,7 @@ describe ConfigReader::Config do
     before :all do
       ConfigReader.config.config_folder = "#{ConfigReader::Engine.root}/spec/config/auto_build"
       ConfigReader.config.auto_build_class = Object
+      ConfigReader.config.auto_build_config_objects = true
     end
 
     after :each do
@@ -12,16 +13,12 @@ describe ConfigReader::Config do
       Object.send(:remove_const, :FAKE_ENV) if Object.const_defined? :FAKE_ENV
     end
 
-    let(:fake_app) { Class.new }
-
     it "should auto-build flat config file" do
-      ConfigReader.config.auto_build_config_objects = true
       ConfigReader.auto_build
       FAKE_SIMPLE.class.should == ConfigReader::FlatConfigReader
     end
 
     it "should auto-build env config file" do
-      ConfigReader.config.auto_build_config_objects = true
       ConfigReader.auto_build
       FAKE_ENV.class.should == ConfigReader::EnvConfigReader
     end
