@@ -20,10 +20,10 @@ module ConfigReader
   end
 
   def self.build_config_files
-    return unless config.auto_build_config_objects
+    return unless config.auto_create_config_objects
 
-    build_files(config.config_folder, FlatConfigReader)
-    build_files("#{config.config_folder}/env", EnvConfigReader)
+    build_files(config.auto_create_config_folder, FlatConfigReader)
+    build_files("#{config.auto_create_config_folder}/env", EnvConfigReader)
   end
 
   def self.build_files(folder, klass)
@@ -31,7 +31,7 @@ module ConfigReader
       path = Pathname.new(file)
       next if path.directory? or !path.exist?
 
-      config.auto_build_class.class_eval do
+      config.auto_create_class.class_eval do
         const_set(path.basename('.*').to_s.upcase, klass.new(YAML.load_file(file)))
       end
     end

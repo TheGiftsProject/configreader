@@ -1,13 +1,13 @@
 module ConfigReader
   class Config
 
-    attr_accessor :config_folder, :auto_build_config_objects, :auto_build_class
+    attr_accessor :auto_create_config_folder, :auto_create_config_objects, :auto_create_class
 
     def self.default
       new.instance_eval {
-        @config_folder = "#{ConfigReader.app_root}/config/configreader"
-        @auto_build_config_objects = false
-        @auto_build_class = Object
+        @auto_create_config_folder = "#{ConfigReader.app_root}/config/configreader"
+        @auto_create_config_objects = false
+        @auto_create_class = Object
 
         self
       }
