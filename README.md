@@ -1,4 +1,4 @@
-# ConfigReader
+# ConfigReader 0.0.1  [![Build Status](https://secure.travis-ci.org/TheGiftsProject/configreader.png)](http://travis-ci.org/TheGiftsProject/configreader)
 
  ConfigReader provides an easy way to load up your configuration YAML files into Ruby objects,
  providing a more concise API to access your configuration data, by accessing methods instead of Hash keys. It also
