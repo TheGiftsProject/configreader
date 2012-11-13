@@ -3,6 +3,7 @@
  ConfigReader provides an easy way to load up your configuration YAML files into Ruby objects,
  providing a more concise API to access your configuration data, by accessing methods instead of Hash keys. It also
  allows you to configure environment aware configuration objects, keeping your code DRY.
+
  You can use it to access your FACEBOOK / ANALYTICS configuration YAML's for instance.
 
  Note: Only the first level YAML keys can be accessed as methods.
