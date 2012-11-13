@@ -3,6 +3,7 @@
  ConfigReader provides an easy way to load up your configuration YAML files into Ruby objects,
  providing a more concise API to access your configuration data, by accessing methods instead of Hash keys. It also
  allows you to configure environment aware configuration objects, keeping your code DRY.
+ You can use it to access your FACEBOOK / ANALYTICS configuration YAML's for instance.
 
  Note: Only the first level YAML keys can be accessed as methods.
 
@@ -17,26 +18,30 @@ Note: The examples are for a Rails 3 app.
 * The most simple way to use ConfigReader is to change your existing config initializer files to use it
 like so:
 
-Let's say you have a YAML config like  `config/initializers/example.rb`
+Let's say you have a YAML config like `config/facebook.rb`
 ```yaml
  development:
-    some_config: 123
+    id: 123
+    secret_key: secret_key
  production:
-    some_config: 456
+    id: 456
+    secret_key: secret_key
  test:
-    some_config: 678
+    id: 678
+    secret_key: secret_key
  staging:
-    some_config: 154
+    id: 154
+    secret_key: secret_key
 ```
 
 In your config initializer, initialize an EnvConfigReader like so:
 ```ruby
-   EXAMPLE = ConfigReader::EnvConfigReader.new("example.yml")
+   FACEBOOK = ConfigReader::EnvConfigReader.new("facebook.yml")
 ```
 
-Then you could access EXAMPLE config from anywhere in your Rails app:
+Then you could access FACEBOOK config from anywhere in your Rails app:
 ```ruby
-   EXAMPLE.some_config
+   FACEBOOK.some_config
 ```
 
 Since we are using an EnvConfigReader object, the some_config we asked for is loaded up from the current RAILS_ENVIRONMENT.
