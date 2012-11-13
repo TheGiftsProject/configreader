@@ -19,7 +19,7 @@ Note: The examples are for a Rails 3 app.
 * The most simple way to use ConfigReader is to change your existing config initializer files to use it
 like so:
 
-Let's say you have a YAML config like `config/facebook.rb`
+Let's say you have a YAML config like `config/facebook.yml`
 ```yaml
  development:
     id: 123
@@ -42,7 +42,8 @@ In your config initializer, initialize an EnvConfigReader like so:
 
 Then you could access FACEBOOK config from anywhere in your Rails app:
 ```ruby
-   FACEBOOK.some_config
+   FACEBOOK.id
+   FACEBOOK.secret_key
 ```
 
 Since we are using an EnvConfigReader object, the some_config we asked for is loaded up from the current RAILS_ENVIRONMENT.
