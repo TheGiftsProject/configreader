@@ -46,7 +46,7 @@ Then you could access FACEBOOK config from anywhere in your Rails app:
    FACEBOOK.secret_key
 ```
 
-Since we are using an EnvConfigReader object, the some_config we asked for is loaded up from the current RAILS_ENVIRONMENT.
+Since we are using an EnvConfigReader object, the FACEBOOK.id key we asked for is loaded up from the current RAILS_ENVIRONMENT.
 By default, ConfigReader will assume your config folder is your Rails.root/config, and will build the full path using it.
 
 There's also a FlatConfigReader, which is the more basic version. it's useful for flat config files like so:
@@ -86,7 +86,7 @@ in your Rails app, just like we already did in the initializers.
 like ConfigReader, so then you'll be able to access them using that object: `ConfigReader::EXAMPLE`
 
 `auto_create_config_folder` - The default value to the config_folder is `#{Rails.root}/config/configreader`. Use this config
-item to override it another path.
+item to override it to another path.
 
 ## Requirements
 
