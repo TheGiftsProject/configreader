@@ -1,4 +1,4 @@
-require_relative './flat_configreader'
+require File.expand_path('../flat_configreader', __FILE__)
 
 module ConfigReader
 

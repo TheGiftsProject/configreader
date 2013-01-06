@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../../lib/configreader/env_configreader'
+require File.expand_path('../../../lib/configreader/env_configreader', __FILE__)
 
 describe ConfigReader::EnvConfigReader do
 
