@@ -8,7 +8,7 @@ module ConfigReader
 
     def initialize(file_name)
       super(file_name)
-      @data = @data[Rails.env]
+      @data = @data[Rails.env] || @data['defaults']
       raise EnvironmentNotFoundInYaml.new if @data.nil?
     end
 

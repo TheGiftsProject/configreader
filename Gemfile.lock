@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    configreader (0.0.1)
+    configreader (0.0.2)
       rails
 
 GEM

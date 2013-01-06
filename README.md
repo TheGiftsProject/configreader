@@ -1,4 +1,4 @@
-# ConfigReader 0.0.1  [![Build Status](https://secure.travis-ci.org/TheGiftsProject/configreader.png)](http://travis-ci.org/TheGiftsProject/configreader)
+# ConfigReader 0.0.2  [![Build Status](https://secure.travis-ci.org/TheGiftsProject/configreader.png)](http://travis-ci.org/TheGiftsProject/configreader)
 
  ConfigReader provides an easy way to load up your configuration YAML files into Ruby objects,
  providing a more concise API to access your configuration data, by accessing methods instead of Hash keys. It also
@@ -21,6 +21,9 @@ like so:
 
 Let's say you have a YAML config like `config/facebook.yml`
 ```yaml
+ defaults:
+    id: default_id
+    secret_key: default_secret_key
  development:
     id: 123
     secret_key: secret_key
@@ -48,6 +51,8 @@ Then you could access FACEBOOK config from anywhere in your Rails app:
 
 Since we are using an EnvConfigReader object, the FACEBOOK.id key we asked for is loaded up from the current RAILS_ENVIRONMENT.
 By default, ConfigReader will assume your config folder is your Rails.root/config, and will build the full path using it.
+If the current environment is not specified in the YAML file (for example the demo environment) then EnvConfigReader will use
+the settings nested under the 'defaults' hash. If no 'defaults' hash exist then the EnvConfigReader will raise an exception.
 
 There's also a FlatConfigReader, which is the more basic version. it's useful for flat config files like so:
 ```yaml
