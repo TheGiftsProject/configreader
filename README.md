@@ -71,12 +71,11 @@ A more advanced feature ConfigReader offers, is automatically loading all your c
 of your Rails app.
 
 It's turned off by default, so to turn it on, we'll need to create an initializer for ConfigReader:
+`Note: Since we're extending the rails initialization process, this configuration must sit inside the configreader.rb file`
 
 `config/initializers/configreader.rb`
 ```ruby
-   ConfigReader.initialize do
-      config.auto_create_config_objects = true
-   end
+ ConfigReader.auto_create_config_objects = true
 ```
 
 You're almost done, you'll need to move your YAML configuration files to the default configreader directory:
