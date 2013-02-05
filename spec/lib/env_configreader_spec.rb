@@ -1,13 +1,13 @@
 require 'spec_helper'
-require File.expand_path('../../../lib/configreader/env_configreader', __FILE__)
+require_relative '../../lib/configreader/env_configreader'
 
 describe ConfigReader::EnvConfigReader do
 
   before do
-    ConfigReader::EnvConfigReader.any_instance.stub(:relative_path => "#{ConfigReader::Engine.root}/spec/config")
+    ConfigReader.config_path = "#{ConfigReader::Engine.root}/spec/config"
   end
 
-  subject { ConfigReader::EnvConfigReader.new("fake_env.yml") }
+  subject { ConfigReader::EnvConfigReader.load("fake_env.yml") }
 
   it "should let you access data under the right env" do
     subject.devid.should == "devid"
@@ -27,7 +27,7 @@ describe ConfigReader::EnvConfigReader do
 
     it 'should fallback to default settings if defaults exist' do
       Rails.stub(:env) { 'unknown' }
-      config = ConfigReader::EnvConfigReader.new 'fake_env.yml'
+      config = ConfigReader::EnvConfigReader.load('fake_env.yml')
 
       config.id.should == 'defaultID'
       config.appid.should == 'defaultAppID'
@@ -36,7 +36,7 @@ describe ConfigReader::EnvConfigReader do
 
     it 'should raise an EnvironmentNotFoundInYaml when loading if defaults do not exist' do
       expect {
-        ConfigReader::EnvConfigReader.new("fake_invalid.yml")
+        ConfigReader::EnvConfigReader.load("fake_invalid.yml")
       }.to raise_error(ConfigReader::EnvConfigReader::EnvironmentNotFoundInYaml)
     end
 

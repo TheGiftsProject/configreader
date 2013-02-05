@@ -2,10 +2,10 @@
 require File.expand_path("../lib/configreader/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "configreader"
+  s.name        = 'configreader'
   s.version     = ConfigReader::VERSION
-  s.authors     = ["Itay Adler"]
-  s.email       = ["itayadler@gmail.com"]
+  s.authors     = ['Itay Adler']
+  s.email       = ['itayadler@gmail.com']
   s.homepage    = "https://github.com/TheGiftsProject/configreader"
   s.summary     = %q{ConfigReader - An easy way to manage your configuration files}
   s.description = %q{ConfigReader provides an easy way to load up your configuration YAML files into Ruby objects,
