@@ -8,6 +8,11 @@ module ConfigReader
       remove_id_method
     end
 
+    def to_h
+      @data
+    end
+    alias_method :to_hash, :to_h
+
     def method_missing(name)
       @data[name.to_s]
     end

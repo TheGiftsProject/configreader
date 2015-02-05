@@ -30,5 +30,17 @@ describe ConfigReader::FlatConfigReader do
     }.to raise_error(Errno::ENOENT)
   end
 
+  describe :to_h do
+    let(:expected_hash) { YAML.load_file("spec/config/fake_simple.yml") }
+
+    it "should return a hash" do
+      expect(subject.to_h).to be_a Hash
+    end
+
+    it "should return the correct data" do
+      expect(subject.to_h).to eq expected_hash
+    end
+
+  end
 
 end
