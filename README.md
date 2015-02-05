@@ -6,7 +6,7 @@
 
  You can use it to access your FACEBOOK / ANALYTICS configuration YAML's for instance.
 
- ## Usage
+## Usage
 
 Note: The examples are for a Rails 3 app.
 
