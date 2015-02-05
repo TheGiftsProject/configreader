@@ -1,4 +1,4 @@
-# ConfigReader 0.0.2  [![Build Status](https://secure.travis-ci.org/TheGiftsProject/configreader.png)](http://travis-ci.org/TheGiftsProject/configreader)
+# ConfigReader 0.0.4  [![Build Status](https://secure.travis-ci.org/TheGiftsProject/configreader.png)](http://travis-ci.org/TheGiftsProject/configreader)
 
  ConfigReader provides an easy way to load up your configuration YAML files into Ruby objects,
  providing a more concise API to access your configuration data, by accessing methods instead of Hash keys. It also
@@ -6,9 +6,7 @@
 
  You can use it to access your FACEBOOK / ANALYTICS configuration YAML's for instance.
 
- Note: Only the first level YAML keys can be accessed as methods.
-
-## Usage
+ ## Usage
 
 Note: The examples are for a Rails 3 app.
 
