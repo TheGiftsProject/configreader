@@ -1,6 +1,7 @@
 require 'active_support/dependencies'
 require 'configreader/config'
 require 'yaml'
+require 'hashie'
 require 'pathname'
 
 module ConfigReader
@@ -41,5 +42,6 @@ module ConfigReader
 end
 
 require 'configreader/engine'
+require 'configreader/mixins/file_loading'
 require 'configreader/flat_configreader'
 require 'configreader/env_configreader'

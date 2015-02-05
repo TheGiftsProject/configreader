@@ -1,37 +1,35 @@
 require 'spec_helper'
-require File.expand_path('../../../lib/configreader/env_configreader', __FILE__)
 
 describe ConfigReader::EnvConfigReader do
 
   before do
-    ConfigReader::EnvConfigReader.any_instance.stub(:relative_path => "#{ConfigReader::Engine.root}/spec/config")
+    ConfigReader::EnvConfigReader.any_instance.stub(:config_path => "#{ConfigReader::Engine.root}/spec/config")
   end
 
   subject { ConfigReader::EnvConfigReader.new("fake_env.yml") }
 
   it "should let you access data under the right env" do
-    subject.devid.should == "devid"
-    subject.appid.should == "appid"
+    subject.devid.should eq "devid"
+    subject.appid.should eq "appid"
   end
 
-  it "should not let you access data under other enviroments" do
+  it "should not let you access data under other environments" do
     subject.only_production.should be_nil
-    subject.devid.should_not == "wrong"
+    subject.devid.should_not eq "productionDevId"
   end
 
   it "should enable you to read the id attribute" do
-    subject.id.should == "testID"
+    subject.id.should eq "testID"
   end
 
   context 'when an environment does not exist in the configuration' do
 
     it 'should fallback to default settings if defaults exist' do
       Rails.stub(:env) { 'unknown' }
-      config = ConfigReader::EnvConfigReader.new 'fake_env.yml'
 
-      config.id.should == 'defaultID'
-      config.appid.should == 'defaultAppID'
-      config.certid.should == 'defaultCertID'
+      subject.id.should eq 'defaultID'
+      subject.appid.should eq 'defaultAppID'
+      subject.certid.should eq 'defaultCertID'
     end
 
     it 'should raise an EnvironmentNotFoundInYaml when loading if defaults do not exist' do
@@ -40,6 +38,14 @@ describe ConfigReader::EnvConfigReader do
       }.to raise_error(ConfigReader::EnvConfigReader::EnvironmentNotFoundInYaml)
     end
 
+  end
+
+  context 'when an environment only exists partially' do
+    before { Rails.stub(:env) { 'production' } }
+    it 'should deep merge the defaults' do
+      subject.devid.should eq 'productionDevId'
+      subject.certid.should eq 'defaultCertID'
+    end
   end
 
 end

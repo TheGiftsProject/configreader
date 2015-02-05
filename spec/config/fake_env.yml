@@ -10,6 +10,6 @@ test:
   certid:   certid
 
 production:
-  id:     wrong
-  devid:  wrong
+  id:     productionID
+  devid:  productionDevId
   only_production: 3
