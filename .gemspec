@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir.glob('spec/lib/*_spec.rb')
 
 
-  s.add_dependency 'rails', '~> 3.0', '> 3.0.0'
+  s.add_dependency 'rails', '> 3.0.0'
   s.add_dependency 'hashie', '~> 3.0', '> 3.0.0'
   s.add_development_dependency 'rake', '~> 0.9'
   s.add_development_dependency 'rspec', '~> 2.11', '>= 2.11.0'

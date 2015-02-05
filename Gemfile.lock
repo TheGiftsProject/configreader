@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     configreader (0.0.4)
-      hashie
-      rails
+      hashie (~> 3.0, > 3.0.0)
+      rails (> 3.0.0)
 
 GEM
   remote: http://rubygems.org/
@@ -94,5 +94,5 @@ PLATFORMS
 
 DEPENDENCIES
   configreader!
-  rake
-  rspec
+  rake (~> 0.9)
+  rspec (~> 2.11, >= 2.11.0)
