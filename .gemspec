@@ -12,14 +12,15 @@ Gem::Specification.new do |s|
                   providing a more concise API to access your configuration data, by accessing methods instead of Hash keys. It also
                   allows you to configure environment aware configuration objects, and by so inverting the logic of
                   environment specific configuration into the ConfigReader.}
+  s.license     = "MIT"
 
   s.files         = `git ls-files`.split("\n")
   s.require_path  = "lib"
   s.test_files = Dir.glob('spec/lib/*_spec.rb')
 
 
-  s.add_dependency 'rails'
-  s.add_dependency 'hashie'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
+  s.add_dependency 'rails', '~> 3.0', '> 3.0.0'
+  s.add_dependency 'hashie', '~> 3.0', '> 3.0.0'
+  s.add_development_dependency 'rake', '~> 0.9'
+  s.add_development_dependency 'rspec', '~> 2.11', '>= 2.11.0'
 end
